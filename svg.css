@@ -1,0 +1,106 @@
+nice-svg {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+nice-svg svg {
+    width: 24px;
+    height: 24px;
+    fill: #444444;
+    transition: 0.4s;
+}
+
+nice-svg:hover svg {
+    fill: rgb(0, 140, 255);
+}
+
+nice-svg.blur svg {
+    opacity: 0.75;
+}
+
+nice-svg.blur:hover svg {
+    opacity: 1;
+}
+
+nice-svg.rotate svg {
+    transform: rotate(180deg);
+}
+
+nice-svg.hidden {
+    transition: opacity 1s 0.0s, visibility 0.0s 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+nice-svg.pointer {
+    cursor: pointer;
+}
+
+nice-svg.spin svg {
+    animation: spin 0.8s infinite linear;
+}
+
+nice-svg.hover_slow_spin:hover svg {
+    animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+nice-svg.success svg,
+nice-svg.success:hover svg {
+    fill: green;
+}
+
+nice-svg.error svg,
+nice-svg.error:hover svg {
+    fill: red;
+}
+
+nice-svg .icon_tooltip {
+    position: absolute;
+    bottom: calc( 100% + 6px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 9;
+    padding: 4px 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+    border: 1px solid #bcbcbc;
+    border-radius: 6px;
+    line-height: 18px;
+    text-align: center;
+}
+
+nice-svg:hover .icon_tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+nice-svg:hover .icon_tooltip:before,
+nice-svg:hover .icon_tooltip:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nice-svg:hover .icon_tooltip:before {
+    border: 6px solid;
+    border-color: #bcbcbc transparent transparent transparent;
+}
+
+nice-svg:hover .icon_tooltip:after {
+    border: 5px solid;
+    border-color: #ffffff transparent transparent transparent;
+}
